@@ -3,23 +3,22 @@ package org.cachingproxy;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CacheManager {
-    private ConcurrentHashMap<String, CacheObject> caches;
+    private final ConcurrentHashMap<String, CacheObject> cache;
 
     public CacheManager() {
-        this.caches = new ConcurrentHashMap<>();
+        this.cache = new ConcurrentHashMap<>();
     }
 
     public void clearCache() {
-        this.caches.clear();
-        System.out.println("Cache cleared");
+        cache.clear();
+        System.out.println("Cache cleared successfully.");
     }
 
     public CacheObject getCache(String key) {
-        return this.caches.get(key);
+        return cache.get(key);
     }
 
-    public void addCache(String key, CacheObject value) {
-        this.caches.put(key, value);
+    public void addCache(String key, CacheObject cacheObject) {
+        cache.put(key, cacheObject);
     }
-
 }
